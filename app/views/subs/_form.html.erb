@@ -1,0 +1,15 @@
+<% action = source == :new_sub ? subs_url : sub_url(@sub) %>
+<% method = source == :new_sub ? "POST" : "PATCH" %>
+
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="_method" value = "<%= method %>">
+  <%= auth_token %>
+
+  <label>Title</label>
+  <input type = "text" name = "sub[title]" value = "<%= @sub.title %>">
+
+  <label>Description</label>
+  <input type = "text" name = "sub[description]" value = "<%= @sub.description %>">
+
+  <input type = "submit">
+</form>

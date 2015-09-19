@@ -1,0 +1,8 @@
+
+  <input type="checkbox"
+         name="post[cross_post][]"
+         value="<%= checkbox.id %>"
+         <%= "checked" if post.cross_posts.map(&:sub_id).include?(checkbox.id) %>
+         >
+  <label><%= checkbox.title %></label>
+  <br>

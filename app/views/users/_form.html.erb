@@ -1,0 +1,13 @@
+<% action = source == :new_user ? users_url : session_url %>
+
+<form action="<%= action %>" method="POST">
+  <%= auth_token %>
+
+  <label>Email</label>
+  <input type = "text" name = "user[email]" value = "<%= @user.email %>">
+
+  <label>Password</label>
+  <input type = "password" name = "user[password]" value = "">
+
+  <input type = "submit">
+</form>

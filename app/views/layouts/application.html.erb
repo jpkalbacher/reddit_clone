@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style>
+    .button_to {
+      display:inline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+
+<% if current_user %>
+  <span style="display:inline">
+    <%= current_user.email %>
+    <%= button_to "Log Out", session_url, method: :delete  %>
+  </span>
+<% else %>
+  <%= button_to "Sign up", new_user_url, method: :get %> or
+  <%= button_to "Log in", new_session_url, method: :get %>
+  <% end %>
+  </header>
+
+  <% if flash[:notice] %>
+    <% flash[:notice].each do |flash| %>
+      <%= flash %>
+    <% end %>
+  <% end %>
+
+<%= yield %>
+
+
+</body>
+</html>

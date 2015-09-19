@@ -1,0 +1,8 @@
+<h1>Reddit Subreddits</h1>
+<% if @subs %>
+  <ul>
+    <%= render partial: "sub", collection: @subs %>
+  </ul>
+<% end %>
+
+<%= link_to "Add new Subreddit!", new_sub_url %>

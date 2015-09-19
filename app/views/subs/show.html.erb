@@ -1,0 +1,18 @@
+<h1><%= @sub.title %></h1>
+
+<h2><%= @sub.description %></h2>
+
+<% @sub.posts.each do |post| %>
+
+<p> <b> <%=  post.title  %> </b></p>
+<p>  <%=  post.author.email  %> </p>
+ <p>  <%=  post.url %> </p>
+  <p><%=  post.content  %> </p>
+
+<% end %>
+
+<%= link_to 'Create post', new_sub_post_url(@sub) %>
+<br>
+
+<%= link_to 'Back to subreddits', subs_url %>
+<%= link_to 'Edit subreddit', edit_sub_url(@sub) %>

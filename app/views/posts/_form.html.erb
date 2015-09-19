@@ -1,0 +1,22 @@
+<% action = source == :new_post ? sub_posts_url(@sub) : post_url(@post)  %>
+<% method = source == :new_post ? "POST" : "PATCH" %>
+
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="_method" value = "<%= method %>">
+  <%= auth_token %>
+
+  <label>Title</label>
+  <input type = "text" name = "post[title]" value = "<%= @post.title %>"><br />
+
+  <label>Url</label>
+  <input type = "text" name = "post[url]" value = "<%= @post.url %>"><br /><br />
+
+  <label>Content</label><br>
+  <textarea cols="20" rows="10" name = "post[content]"><%= @post.content %>
+  </textarea><br /><br />
+
+  <label>Cross Posts</label><br>
+  <%= render partial: 'checkbox', collection: @subs, locals: {post: @post} %>
+
+  <input type = "submit">
+</form>
